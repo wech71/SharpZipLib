@@ -151,8 +151,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public bool CanDecompressEntry 
 			=> entry != null
 			&& IsEntryCompressionMethodSupported(entry)
-			&& entry.CanDecompress
-			&& (!entry.HasFlag(GeneralBitFlags.Descriptor) || entry.CompressionMethod != CompressionMethod.Stored || entry.IsCrypted);
+			&& entry.CanDecompress;
 
 		/// <summary>
 		/// Is the compression method for the specified entry supported?
@@ -273,14 +272,19 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			entry.ProcessExtraData(true);
-			if (entry.CompressedSize >= 0)
-			{
-				csize = entry.CompressedSize;
-			}
 
 			if (entry.Size >= 0)
 			{
 				size = entry.Size;
+			}
+
+			if (entry.CompressedSize >= 0)
+			{
+				csize = entry.CompressedSize;
+			}
+			else if (method == CompressionMethod.Stored)
+			{
+				csize = size;
 			}
 
 			if (method == CompressionMethod.Stored && (!isCrypted && csize != size || (isCrypted && csize - ZipConstants.CryptoHeaderSize != size)))
@@ -605,13 +609,6 @@ namespace ICSharpCode.SharpZipLib.Zip
 				if (method == CompressionMethod.Deflated && inputBuffer.Available > 0)
 				{
 					inputBuffer.SetInflaterInput(inf);
-				}
-
-				// It's not possible to know how many bytes to read when using "Stored" compression (unless using encryption)
-				if (!entry.IsCrypted && method == CompressionMethod.Stored && usesDescriptor)
-				{
-					internalReader = StoredDescriptorEntry;
-					return StoredDescriptorEntry(destination, offset, count);
 				}
 
 				if (!CanDecompressEntry)
