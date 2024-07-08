@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestReadZip4JStoredEntriesZip", "TestReadZip4JStoredEntriesZip.csproj", "{332CE863-AF5D-4EB5-996B-35051ADC6332}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICSharpCode.SharpZipLib", "..\..\src\ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.csproj", "{04517E6F-41DC-4BE5-A6D4-94429FDB3865}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{332CE863-AF5D-4EB5-996B-35051ADC6332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332CE863-AF5D-4EB5-996B-35051ADC6332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332CE863-AF5D-4EB5-996B-35051ADC6332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332CE863-AF5D-4EB5-996B-35051ADC6332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04517E6F-41DC-4BE5-A6D4-94429FDB3865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04517E6F-41DC-4BE5-A6D4-94429FDB3865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04517E6F-41DC-4BE5-A6D4-94429FDB3865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04517E6F-41DC-4BE5-A6D4-94429FDB3865}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22C9144B-1DD3-46D1-8878-6EDE6AA86C8B}
+	EndGlobalSection
+EndGlobal
